@@ -1,29 +1,65 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f9f9fb;
+  --background-soft: #ffffff;
+  --foreground: #18181b;
+  --foreground-muted: #52525b;
+  --border: #e4e4e7;
+  --accent: #18181b;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0b0b0d;
+    --background-soft: #111114;
+    --foreground: #eaeaea;
+    --foreground-muted: #a1a1aa;
+    --border: #1f1f23;
+    --accent: #ffffff;
   }
 }
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
+h1, h2, h3 {
+  color: var(--foreground);
+  letter-spacing: -0.02em;
+}
+
+p {
+  color: var(--foreground-muted);
+  line-height: 1.6;
+}
+.project-card,
+.stack-list li,
+.contact,
+.hero {
+  background: var(--background-soft);
+  border: 1px solid var(--border);
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  .btn.primary {
+    color: #000;
+  }
+}
+
+.btn.secondary {
+  border: 1px solid var(--border);
+  color: var(--foreground);
+}
+
+
 
 *{
   box-sizing: border-box;
@@ -92,7 +128,7 @@ body{
 }
 .nav-links a.active{
   font-weight: 600;
-  border-bottom: 2px solid green;
+  border-bottom: 2px solid white;
 }
 .page{
   padding: 16px;
@@ -137,7 +173,7 @@ body{
     font-size: 3rem;
   }
   .hero{
-    padding: 80 px 0;
+    padding: 20 px 0;
   }
 }
 .hero-text{
@@ -155,6 +191,7 @@ body{
     align-items: center;
     justify-content: space-between;
     padding: 80px 0;
+
   }
   .hero-text{
     max-width: 600px;
@@ -162,6 +199,7 @@ body{
 }
 .stack{
   padding: 48px 0;
+
 }
 .stack-title{
   font-size: 1.5rem;
@@ -180,4 +218,69 @@ body{
   border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 0.9rem;
+}
+.projects{
+  padding: 48px 0;
+}
+.projects-title{
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+}
+.projects-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.project-card{
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.project-card h3{
+  margin: 0;
+}
+.project-card  p{
+  font-size: 0.9rem;
+}
+.project-tech{
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.project-tech li{
+  font-size: 0.85rem;
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.project-link{
+  margin-top: auto;
+  text-decoration: none;
+  font-weight: 500;
+}
+@media(min-width:768px){
+  .project-grid{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+.contact{
+  padding: 48px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.contact p{
+  max-width: 500px;
+
+}
+.contact-actions{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+
 }
